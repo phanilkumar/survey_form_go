@@ -2,7 +2,7 @@
 
 ## **Base URL**
 ```
-http://localhost:8080
+http://localhost:8081
 ```
 
 ## **API Endpoints**
@@ -57,17 +57,17 @@ Content-Type: application/json
 
 #### **List Survey Responses**
 ```http
-GET /api/surveys/{survey_id}/survey_responses
+GET /api/surveys/{id}/responses
 ```
 
 #### **Get Specific Response**
 ```http
-GET /api/surveys/{survey_id}/survey_responses/{id}
+GET /api/surveys/{id}/responses/{response_id}
 ```
 
 #### **Submit Response**
 ```http
-POST /api/surveys/{survey_id}/survey_responses
+POST /api/surveys/{id}/responses
 Content-Type: application/json
 
 {
@@ -88,7 +88,8 @@ Content-Type: application/json
 
 #### **Update Response**
 ```http
-PATCH /api/surveys/{survey_id}/survey_responses/{id}
+PATCH /api/surveys/{id}/responses/{response_id}
+```
 Content-Type: application/json
 
 {
@@ -214,17 +215,17 @@ GET /up
 ### **Create and Test Survey**
 ```bash
 # Create survey
-curl -X POST http://localhost:8080/api/surveys \
+curl -X POST http://localhost:8081/api/surveys \
   -H "Content-Type: application/json" \
   -d '{"survey":{"title":"Test Survey","description":"Test Description"}}'
 
 # Submit response
-curl -X POST http://localhost:8080/api/surveys/1/survey_responses \
+curl -X POST http://localhost:8081/api/surveys/1/responses \
   -H "Content-Type: application/json" \
   -d '{"survey_response":{"user_identifier":"testuser","response_data":{"rating":"5"}}}'
 
 # Get user responses
-curl http://localhost:8080/api/users/testuser/responses
+curl http://localhost:8081/api/users/testuser/responses
 ```
 
 ## **📝 Notes**

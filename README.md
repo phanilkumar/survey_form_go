@@ -45,12 +45,12 @@ A complete **RESTful API** for managing surveys and responses, built with **Go (
 
 4. **Populate with sample data** (optional)
    ```bash
-   go run seed_data.go
+   go run seed.go
    ```
 
 5. **Test the API**
    ```bash
-   curl http://localhost:8080/
+   curl http://localhost:8081/
    ```
 
 ## 📚 **API Endpoints**
@@ -65,10 +65,10 @@ A complete **RESTful API** for managing surveys and responses, built with **Go (
 - `POST /api/surveys` - Create a new survey
 
 ### **Survey Responses**
-- `GET /api/surveys/:survey_id/survey_responses` - List all responses for a survey
-- `GET /api/surveys/:survey_id/survey_responses/:id` - Get specific response
-- `POST /api/surveys/:survey_id/survey_responses` - Submit a new response
-- `PATCH /api/surveys/:survey_id/survey_responses/:id` - Update an existing response
+- `GET /api/surveys/:id/responses` - List all responses for a survey
+- `GET /api/surveys/:id/responses/:response_id` - Get specific response
+- `POST /api/surveys/:id/responses` - Submit a new response
+- `PATCH /api/surveys/:id/responses/:response_id` - Update an existing response
 
 ### **User Responses**
 - `GET /api/users/:user_identifier/responses` - Get all responses by a user
@@ -89,7 +89,7 @@ curl -X POST http://localhost:8080/api/surveys \
 
 ### **Submit a Response**
 ```bash
-curl -X POST http://localhost:8080/api/surveys/1/survey_responses \
+curl -X POST http://localhost:8081/api/surveys/1/responses \
   -H "Content-Type: application/json" \
   -d '{
     "survey_response": {
@@ -105,12 +105,12 @@ curl -X POST http://localhost:8080/api/surveys/1/survey_responses \
 
 ### **Get User Responses**
 ```bash
-curl http://localhost:8080/api/users/john_doe/responses
+curl http://localhost:8081/api/users/john_doe/responses
 ```
 
 ### **Update a Response**
 ```bash
-curl -X PATCH http://localhost:8080/api/surveys/1/survey_responses/1 \
+curl -X PATCH http://localhost:8081/api/surveys/1/responses/1 \
   -H "Content-Type: application/json" \
   -d '{
     "survey_response": {
