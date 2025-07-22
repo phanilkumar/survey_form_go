@@ -234,9 +234,9 @@ survey_form_go/
 - **Location**: Project root directory
 
 ### **Server**
-- **Port**: 8080 (configurable in main.go)
+- **Port**: 8081 (configurable in main.go)
 - **Host**: localhost
-- **URL**: http://localhost:8080
+- **URL**: http://localhost:8081
 
 ## 🚨 **Validation Rules**
 
